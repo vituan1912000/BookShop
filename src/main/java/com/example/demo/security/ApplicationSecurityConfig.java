@@ -11,37 +11,37 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-@Configuration
-@EnableWebSecurity
+//@Configuration
+//@EnableWebSecurity
  public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 	
-	private final PasswordEncoder PasswordEncoder;
-	
-	@Autowired
-   public ApplicationSecurityConfig(org.springframework.security.crypto.password.PasswordEncoder passwordEncoder) {
-		super();
-		PasswordEncoder = passwordEncoder;
-	}
-
-@Override
-protected void configure(HttpSecurity http) throws Exception {
-	http.authorizeRequests()
-	     .anyRequest()
-	     .authenticated()
-	     .and()
-	     .httpBasic();
-}
-   
-   @Override
-   @Bean
-	protected UserDetailsService userDetailsService() {
-	   UserDetails user =
-				 User.builder()
-					.username("tuan")
-					.password(PasswordEncoder.encode("1"))
-					.roles("USER")
-					.build();
-
-			return new InMemoryUserDetailsManager(user);
-	}
+//	private final PasswordEncoder PasswordEncoder;
+//	
+//	@Autowired
+//   public ApplicationSecurityConfig(org.springframework.security.crypto.password.PasswordEncoder passwordEncoder) {
+//		super();
+//		PasswordEncoder = passwordEncoder;
+//	}
+//
+//@Override
+//protected void configure(HttpSecurity http) throws Exception {
+//	http.authorizeRequests()
+//	     .anyRequest()
+//	     .authenticated()
+//	     .and()
+//	     .httpBasic();
+//}
+//   
+//   @Override
+//   @Bean
+//	protected UserDetailsService userDetailsService() {
+//	   UserDetails user =
+//				 User.builder()
+//					.username("tuan")
+//					.password(PasswordEncoder.encode("1"))
+//					.roles("USER")
+//					.build();
+//
+//			return new InMemoryUserDetailsManager(user);
+//	}
 }
