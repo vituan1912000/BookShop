@@ -1,0 +1,125 @@
+header{
+    text-align: center;
+   
+    color:white;
+    background-color: black;
+    padding:30px 0;
+}
+header h1{
+	display: inline;
+	font-size: 50px;
+	 font-family: 'Festive', cursive;
+}
+header img{
+	width: 100px;
+	height: 100px;
+	float:right;
+	border-bottom: 2px solid white;
+	border-radius: 100px;
+}
+header span{
+	border: 1px solid red;
+	color:white;
+	border-radius: 100%;
+	padding:5px 10px;
+	background-color: red;
+	float: right;
+}
+ .affix {
+    top: 0;
+    z-index: 9999 !important;
+  }
+header img:hover{
+	cursor: pointer;
+}
+#poster{
+   background-image: url("../images/bg.jpg");
+   background-repeat: no-repeat;
+    height:500px;
+    width:100%;
+}
+#poster h3{
+    color:white;
+    padding: 100px 0 50px 0;
+}
+#poster p{
+    color:white;
+    font-size: 20px;
+}
+#poster button{
+    border-radius: 10px;
+    margin:40px 20px 0 0;
+
+}
+#category{
+    text-align: center;
+}
+#category h2{
+    margin-bottom: 40px;
+}
+#category h2,hr{
+    text-align: center;
+}
+#category a{
+    border: 1px solid #FFFF66;
+    text-align: center;
+    color:white;
+    padding:10px 20px;
+    border-radius: 15px;
+    text-decoration: none;  
+}
+a{
+		text-decoration: none;
+}
+
+#add{
+	border: 1px solid red;
+	padding: 10px 15px;
+	color:red;
+}
+#add:hover{
+	text-decoration: none;
+	border: 3px solid red;
+	background-color: red;
+	color:black ;
+}
+#category a:hover{
+  border: 3px solid yellow;
+  color:black;
+  background-color: #666666	;
+}
+#category .col{
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.5;
+    
+
+}
+#category .col .p-3{
+	margin-top: 50px;
+	
+}
+
+#category .col:hover{
+	
+	cursor: pointer;
+	opacity: 1;
+
+}
+.boxes h1{
+    text-align: center;
+    opacity: 0.5;
+}
+.boxes img{
+    width: 225px;
+    height: 300px;
+}
+.boxes h6{
+    margin-top: 20px;
+}
+.book:hover{
+	 width: 250px;
+    height: 325px;
+    cursor: pointer;
+    position: absolute;
+}

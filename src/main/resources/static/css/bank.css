@@ -1,0 +1,29 @@
+body{
+    background-color: aqua;
+}
+.size{
+    width:80%;
+    margin:auto;
+}
+.main {
+   margin:auto;
+   text-align: center;
+   
+}
+.main p{
+    margin: 20px 0 50px 0;
+}
+.main img{
+    border-radius: 100%;
+}
+
+.boxes img{
+    width: 15%;
+   margin-right:50px ;
+}
+.boxes{
+    margin-top: 20px;
+    background-color:beige;
+    padding:20px 0;
+    border-radius: 20px;
+}

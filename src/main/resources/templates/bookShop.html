@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Festive&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/home.css">
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="container"  >
+        <img src="images/user.png" style="float:left;"/>
+            <h1> Book Center</h1>
+           <a th:href="@{/viewCart}"> <img src="images/cart.png" data-spy="affix" data-offset-top="197"/><span data-spy="affix" data-offset-top="197"  >1</span></a>
+       </div>
+    </header>
+    <section id="poster" >
+        <div class="container">
+        
+            <h3>Books are knowledge</h3>
+            <p>Skip the trip to your local nursery.</p>
+              <p>Thousands of plants available for delivery directly to you.</p>
+            <button type="button" class="btn btn-outline-warning">Shop Book</button>
+            <button type="button" class="btn btn-outline-warning">Limited</button>
+
+        </div>
+    </section>
+    
+    <section id="category">
+        <div class="container">
+            <hr>
+            <h2>Category</h2>
+        </div>
+ 
+        <div class="row">
+            <div  id="comica" class="col" style="background-image: url('images/categories/comic.jpg');height:200px">
+                <div  class="p-3">
+                       <a style="opacity: 1" href="#">Comic</a>
+                   </div>
+             </div>
+
+                  <div id="fictiona" class="col" style="background-image: url('images/categories/fiction.jpg');height:200px">
+                    <div class="p-3 ">
+                        <a href="">Fiction</a>
+                    </div>
+                  </div>
+
+                  <div id="novela" class="col" style="background-image: url('images/categories/politic.jpg');height:200px">
+                   <div class="p-3 ">
+                    <a href="">Novel</a>
+                   </div>
+                  </div>
+
+                  <div id="politica" class="col" style="background-image: url('images/categories/science.jpg');height:200px">
+                    <div class="p-3 ">
+                        <a href="">Politics</a>
+                    </div>
+                  </div>
+           </div>
+    </section>
+
+<!-- comic section  -->
+<section  class="comic" >
+        <div class="container">
+            <hr>
+            <h2>Best Comics</h2>
+
+            <div class="container-fluid">
+                <div class="boxes">
+                <h1></h1>
+                <div class="row" >
+                    <div style="margin-top: 20px" class="col-md-6" th:each="b : ${comic}">
+                            <img th:src="@{${b.image}}" class="book" alt="" />
+                            <p th:text="${b.title}"></p> <span th:text="${b.price}"></span>$	
+                            <hr>
+                            <p>
+                         <span th:text="${b.author_id.author_name}"></span>
+                            </p>
+                            <div >
+                            <a th:href="@{/addToCart/{bookId}/{uId} (bookId=${b.id} , uId = ${users[0].uId}) }"><span id="add">Add To Cart</span></a>
+                            </div>
+                     </div>
+                  
+                </div>
+            </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+<!-- fiction section  -->
+<section  class="fiction" >
+        <div class="container">
+            <hr>
+            <h2>Best Fiction</h2>
+
+            <div class="container-fluid">
+                <div class="boxes">
+                <h1></h1>
+                <div class="row" >
+                    <div style="margin-top: 20px" class="col-md-6" th:each="b : ${fiction}">
+                            <img th:src="@{${b.image}}" class="book" alt="" />
+                            <p th:text="${b.title}"></p> <span th:text="${b.price}"></span>$	
+                            <hr>
+                            <p>
+                         <span th:text="${b.author_id.author_name}"></span>
+                            </p>
+                            <div >
+                            <a th:href="@{/addToCart/{bookId}/{uId} (bookId=${b.id} , uId = ${users[0].uId}) }"><span id="add">Add To Cart</span></a>
+                            </div>
+                     </div>
+                  
+                </div>
+            </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+<!-- politic section  -->
+<section  class="politic" >
+        <div class="container">
+            <hr>
+            <h2>Best Politic</h2>
+
+            <div class="container-fluid">
+                <div class="boxes">
+                <h1></h1>
+                <div class="row" >
+                    <div style="margin-top: 20px" class="col-md-6" th:each="b : ${politic}">
+                            <img th:src="@{${b.image}}" class="book" alt="" />
+                            <p th:text="${b.title}"></p> <span th:text="${b.price}"></span>$	
+                            <hr>
+                            <p>
+                         <span th:text="${b.author_id.author_name}"></span>
+                            </p>
+                            <div >
+                            <a th:href="@{/addToCart/{bookId}/{uId} (bookId=${b.id} , uId = ${users[0].uId}) }"><span id="add">Add To Cart</span></a>
+                            </div>
+                     </div>
+                  
+                </div>
+            </div>
+            </div>
+
+        </div>
+    </section>
+
+
+<!-- novel section  -->
+<section  class="novel" >
+        <div class="container">
+            <hr>
+            <h2>Best Novels</h2>
+
+            <div class="container-fluid">
+                <div class="boxes">
+                <h1></h1>
+                <div class="row" >
+                    <div style="margin-top: 20px" class="col-md-6" th:each="b : ${novel}">
+                            <img th:src="@{${b.image}}" class="book" alt="" />
+                            <p th:text="${b.title}"></p> <span th:text="${b.price}"></span>$	
+                            <hr>
+                            <p>
+                         <span th:text="${b.author_id.author_name}"></span>
+                            </p>
+                            <div >
+                            <a th:href="@{/addToCart/{bookId}/{uId} (bookId=${b.id} , uId = ${users[0].uId}) }"><span id="add">Add To Cart</span></a>
+                            </div>
+                     </div>
+                  
+                </div>
+            </div>
+            </div>
+
+        </div>
+    </section>
+
+<!-- Top 4 Books -->
+    <section id="top4" style="margin-top: 50px">
+        <div class="container">
+            <hr>
+            <h2>Top Products</h2>
+
+            <div class="container-fluid">
+                <div class="boxes">
+                <h1>MEET OUR TEAM</h1>
+                <div class="row">
+                    <div class="col" th:each="b : ${books}">
+                            <img th:src="@{${b.image}}" class="book" alt="" />
+                            <p th:text="${b.title}"></p> <span th:text="${b.price}"></span>$	
+                            <hr>
+                            <p>
+                         <span th:text="${b.author_id.author_name}"></span>
+                            </p>
+                            <div style="text-align: right;">
+                            <a th:href="@{/addToCart/{bookId}/{uId} (bookId=${b.id} , uId = ${users[0].uId}) }"><span id="add">Add To Cart</span></a>
+                            </div>
+                     </div>
+                  
+                </div>
+            </div>
+            </div>
+
+        </div>
+    </section>
+
+
+</body>
+<script>
+$(document).ready(function(){
+	  $('.comic').hide();
+	  $('.fiction').hide();
+	 $('.politic').hide();
+	 $('.novel').hide();
+	 
+	  $("#comica").click(function(){
+	    $(".comic").toggle(2000);
+		  $('.fiction').hide();
+			 $('.politic').hide();
+			 $('.novel').hide();
+	  });
+	  $("#fictiona").click(function(){
+		    $(".fiction").toggle(2000);
+			 $('.politic').hide();
+			 $('.novel').hide();
+			  $('.comic').hide();
+			 $('.novel').hide();
+		});
+	  $("#politica").click(function(){
+		    $(".politic").toggle(2000);
+			  $('.comic').hide();
+			  $('.fiction').hide();
+			  $('.novel').hide();
+		});
+	  $("#novela").click(function(){
+		    $(".novel").toggle(2000);
+			  $('.comic').hide();
+			  $('.fiction').hide();
+			 $('.politic').hide();
+		});
+	  
+	});
+</script>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+
+
+    <!-- Login Form -->
+    <form th:action="@{/login}">
+      <input type="text" id="login" class="fadeIn second" name="email" placeholder="Email">
+      <input type="text" id="password" class="fadeIn third" name="pass" placeholder="Password">
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+       <p th:text="${mess}"></p>
+      <a class="underlineHover" th:href="@{/forgot}">Forgot Password?</a>
+       <a id="res" class="underlineHover">Register</a>
+    </div>
+
+  </div>
+</div>
+<div></div>
+
+<form method="POST" id="hide" style="display:none;margin-top:50px" th:action="@{/register}" th:object="${user}" class="needs-validation" novalidate>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="validationCustom01">User Name</label>
+      <input type="text" class="form-control" id="validationCustom01" th:field="*{uName}" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationCustom02">Email</label>
+      <input type="email" class="form-control" id="validationCustom02" th:field="*{email}" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="validationCustom03">Password</label>
+      <input type="password" class="form-control" id="validationCustom03" th:field="*{password}" required>
+      <div class="invalid-feedback">
+        Please provide a valid city.
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationCustom04">State</label>
+      <select class="custom-select" id="validationCustom04"  th:field="*{bankId.bankId}" required>
+        <option value="1">BIDV</option>
+        <option value="2">AG Bank</option>
+      </select>
+      <div class="invalid-feedback">
+        Please select a valid state.
+      </div>
+    </div>
+  </div>
+  
+  <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+
+
+</body>
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+<script>
+$(document).ready(function(){
+
+  $("#res").click(function(){
+    $("#hide").show();
+  });
+});
+</script>
+</html>
